@@ -33,7 +33,7 @@ using System.Collections.Generic;
 //
 class HandRenderer : MonoBehaviour 
 {
-	//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	
 	//Leap listener.
 	private LeapListener listener;
@@ -47,7 +47,7 @@ class HandRenderer : MonoBehaviour
 	//Currently active palms.
 	private GameObject[] hands;
 	
-	//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	
 	//Camera to render the hands on.
 	public Camera camera = null;

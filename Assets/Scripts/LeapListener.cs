@@ -33,12 +33,12 @@ using Leap;
 //
 public class LeapListener
 {    
-	//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	
 	//Leap controller.
 	private Leap.Controller controller = null;
 	
-	//Public///////////////////////////////////////////////////////////////////////
+//Public///////////////////////////////////////////////////////////////////////
 	
 	//Minimum distance from hand for thumb to be recognized.
 	public static float thumbDistance = 40;
@@ -71,9 +71,7 @@ public class LeapListener
 	
 	//Is the leap connected?
 	public static bool connected = false;
-	
-	//Member Functions/////////////////////////////////////////////////////////////
-	
+
 	//Member Function: refresh/////////////////////////////////////////////////
 	//
 	//This function refreshes the tracking data from the Leap Motion device.

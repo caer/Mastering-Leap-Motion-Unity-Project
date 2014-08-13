@@ -34,8 +34,6 @@ public class Player : MonoBehaviour
 	//Reference to the hand controller.
 	HandController controller;
 
-	Quaternion q;
-
 	//Member Function: Start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	void Start() 
 	{ 

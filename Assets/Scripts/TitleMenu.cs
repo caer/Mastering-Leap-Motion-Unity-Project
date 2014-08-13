@@ -25,7 +25,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-//Class: TitleMenu\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: TitleMenu\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //
 //This class creates a simple main menu comprised of three TouchableButtons.
 //

@@ -1,6 +1,4 @@
-﻿//TODO: Marked for optimization.
-
-//File: Core.cs
+﻿//File: Core.cs
 //Project: Mastering Leap Motion
 //Date: June 14, 2013
 //

@@ -31,8 +31,6 @@ using System.Collections;
 //
 class HandController : BaseSingleton<HandController>
 {
-//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-	
 //Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\	
 	
 	//Leap Listener reference.
@@ -109,4 +107,3 @@ class HandController : BaseSingleton<HandController>
 		catch(System.Exception e){wasdInput = true;}
 	}
 }
-
