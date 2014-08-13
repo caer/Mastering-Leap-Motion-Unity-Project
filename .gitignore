@@ -1,4 +1,12 @@
 # =============== #
+# Libraries       #
+# =============== #
+Leap.dll
+LeapCSharp.dll
+Assets/LeapCSharp.NET3.5.dll
+Assets/LeapCSharp.NET3.5.dll.meta
+
+# =============== #
 # Unity generated #
 # =============== #
 Temp/
