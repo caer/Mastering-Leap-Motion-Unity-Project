@@ -1,6 +1,6 @@
 ﻿//File: LeapListener.cs
 //Project: Mastering Leap Motion
-//Date: May 27, 2013
+//Date: August 13, 2014
 //
 //Author: Brandon Sanders <brandon@mechakana.com>
 //

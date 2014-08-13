@@ -1,6 +1,6 @@
 //File: HandController.cs
 //Project: Mastering Leap Motion
-//Date: June 26, 2013
+//Date: August 13, 2014
 //
 //Author: Brandon Sanders <brandon@mechakana.com>
 //

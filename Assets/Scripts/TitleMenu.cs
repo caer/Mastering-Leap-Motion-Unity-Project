@@ -1,6 +1,6 @@
 //File: TitleMenu.cs
 //Project: Mastering Leap Motion
-//Date: July 24, 2013
+//Date: August 13, 2014
 //
 //Author: Brandon Sanders <brandon@mechakana.com>
 //
