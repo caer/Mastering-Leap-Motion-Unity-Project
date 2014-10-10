@@ -24,7 +24,7 @@ limitations under the License.
 using UnityEngine;
 using System.Collections;
 
-//Class: TouchableButton\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: TouchableButton///////////////////////////////////////////////////////
 //
 //This class creates and manages a "touchable" GUI Button, designed for use with
 //the TouchPointer class.  This button will automatically detect TouchPointers
@@ -32,7 +32,7 @@ using System.Collections;
 //
 public class TouchableButton
 {
-//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private//////////////////////////////////////////////////////////////////////
 	
 	//Pointer reference.
 	private TouchPointer pointer;
@@ -46,14 +46,14 @@ public class TouchableButton
 	//Current size multiplier being applied to this button.
 	private float size = 1.0F;
 	
-	//Member Function: valueInRange\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: valueInRange//////////////////////////////////////////////
 	//
 	//Returns true if the passed item is within the min and max values, and false
 	//otherwise.
 	//
 	private bool valueInRange(float item, float min, float max) { return (item >= min) && (item <= max); }
 	
-	//Member Function: over\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: over//////////////////////////////////////////////////////
 	//
 	//Returns true if [a]'s X/Y coordinates are within [b], and false otherwise.
 	//
@@ -68,13 +68,13 @@ public class TouchableButton
 		return xOverlap && yOverlap;
 	}
 	
-//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Public///////////////////////////////////////////////////////////////////////
 	
 	//Time in milliseconds that a finger must hover over this button in
 	//order to trigger it.
 	public int triggerTime = 750;
 	
-	//Constructor\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Constructor////////////////////////////////////////////////////////////////
 	public TouchableButton()
 	{
 		//Grab a pointer reference.
@@ -85,7 +85,7 @@ public class TouchableButton
 		hoverTime = new System.Diagnostics.Stopwatch();
 	}
 	
-	//Member Function: render\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: render////////////////////////////////////////////////////
 	//
 	//Renders this button on-screen.
 	//

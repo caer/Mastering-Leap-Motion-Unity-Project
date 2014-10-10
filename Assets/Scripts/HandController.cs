@@ -24,14 +24,14 @@ limitations under the License.
 using UnityEngine;
 using System.Collections;
 
-//Class: HandController\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: HandController////////////////////////////////////////////////////////
 //
 //This class tracks the first hand in the Leap's field of view, generating
 //controller-like inputs for it.
 //
 class HandController : BaseSingleton<HandController>
 {
-//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\	
+//Public///////////////////////////////////////////////////////////////////////
 	
 	//Leap Listener reference.
 	public LeapListener listener;
@@ -46,10 +46,10 @@ class HandController : BaseSingleton<HandController>
 	//Is WASD input being forced due to a lack of LEAP input?
 	public static bool wasdInputForced = false;
 	
-	//onAwake\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//onAwake////////////////////////////////////////////////////////////////////
 	public override void onAwake() { listener = new LeapListener(); }
 
-	//Member Function: Update\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: Update////////////////////////////////////////////////////
 	public void Update() 
 	{
 		//Try to read data from the Leap Motion device.

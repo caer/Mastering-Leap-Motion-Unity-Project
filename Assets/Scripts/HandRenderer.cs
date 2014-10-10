@@ -25,7 +25,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-//Class: HandRenderer\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: HandRenderer//////////////////////////////////////////////////////////
 //
 //This class renders 3D interpretations of every single hand
 //that is currently within the Leap's field of view into the
@@ -33,7 +33,7 @@ using System.Collections.Generic;
 //
 class HandRenderer : MonoBehaviour 
 {
-//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private//////////////////////////////////////////////////////////////////////
 	
 	//Leap listener.
 	private LeapListener listener;
@@ -47,7 +47,7 @@ class HandRenderer : MonoBehaviour
 	//Currently active palms.
 	private GameObject[] hands;
 	
-//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Public///////////////////////////////////////////////////////////////////////
 	
 	//Camera to render the hands on.
 	public Camera camera = null;
@@ -62,10 +62,10 @@ class HandRenderer : MonoBehaviour
 	public float depth = 20.0F;
 	public float verticalOffset = -20.0F;
 	
-	//OnEnable\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//OnEnable///////////////////////////////////////////////////////////////////
 	public void OnEnable() {listener = new LeapListener();}
 	
-	//OnDisable\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//OnDisable//////////////////////////////////////////////////////////////////
 	public void OnDisable()
 	{
 		//Reset the hands array.
@@ -79,7 +79,7 @@ class HandRenderer : MonoBehaviour
 				Destroy(fingers[i]);
 	}
 	
-	//Update\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Update/////////////////////////////////////////////////////////////////////
 	public void Update()
 	{		
 		if (listener == null) listener = new LeapListener();

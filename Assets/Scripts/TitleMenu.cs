@@ -25,18 +25,16 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-//Class: TitleMenu\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: TitleMenu/////////////////////////////////////////////////////////////
 //
 //This class creates a simple main menu comprised of three TouchableButtons.
 //
 public class TitleMenu : MonoBehaviour
 {
-//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Public///////////////////////////////////////////////////////////////////////
 
 	//Smoothed button height for middle, right, and left.
-	public float middleButtonHeight = 0.0f;
-	public float leftButtonHeight = 0.0f;
-	public float rightButtonHeight = 0.0f;
+	public float buttonHeight = 0.0f;
 
 	//Font size.
 	public static int fontsize = 10000;
@@ -49,7 +47,7 @@ public class TitleMenu : MonoBehaviour
 	public TouchableButton playButton;
 	public TouchableButton greyButton;
 
-	//Member Function: OnEnable\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: OnEnable//////////////////////////////////////////////////
 	public void OnEnable()
 	{
 		//The menu is now open.
@@ -61,14 +59,22 @@ public class TitleMenu : MonoBehaviour
 		greyButton = new TouchableButton();
 	}
 
-	//Member Function: OnDisable\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: OnDisable/////////////////////////////////////////////////
 	public void OnDisable()
 	{
 		//The menu is now closed.
 		open = false;
 	}
 	
-	//Member Function: OnGUI\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: getButtonRect/////////////////////////////////////////////
+	public Rect getButtonRect(float x, float y)
+	{
+		return new Rect(((Screen.width / 2) - (x * ((Screen.width + Screen.height) / 2) / 1500)), 
+		                 (Screen.height / 2 - y - GUI.skin.button.fontSize), 
+		                  360 * ((Screen.width + Screen.height) / 2) / 1500, 180 * ((Screen.width + Screen.height) / 2) / 1500);
+	}
+	
+	//Member Function: OnGUI/////////////////////////////////////////////////////
 	public void OnGUI() 
 	{
 		//Set up GUI fonts.
@@ -79,26 +85,20 @@ public class TitleMenu : MonoBehaviour
 		GUI.color = new Color(Core.getInstance().interfaceColors.primary.r, Core.getInstance().interfaceColors.primary.g, Core.getInstance().interfaceColors.primary.b);
 
 		//Clicking the Play button will unpause the game and begin play.
-		if(playButton.render(new Rect(((Screen.width / 2) - (180 * ((Screen.width + Screen.height) / 2) / 1500)), 
-		                     (Screen.height / 2 - middleButtonHeight - GUI.skin.button.fontSize), 
-		                      360 * ((Screen.width + Screen.height) / 2) / 1500, 180 * ((Screen.width + Screen.height) / 2) / 1500), "play"))
+		if(playButton.render(getButtonRect(180, buttonHeight), "play"))
 		{
 			//Close and disable the menu.
 			open = false; enabled = false;
 		}
 
-		//Clicking the Color button will restore the interface colorscheme to its defaults.
-		if(colorButton.render(new Rect(((Screen.width / 2) - (580 * ((Screen.width + Screen.height) / 2) / 1500)), 
-		                      (Screen.height / 2 - leftButtonHeight - GUI.skin.button.fontSize), 
-		                       360 * ((Screen.width + Screen.height) / 2) / 1500, 180 * ((Screen.width + Screen.height) / 2) / 1500), "colour"))
+		//Clicking the Colour button will restore the interface colorscheme to its defaults.
+		if(colorButton.render(getButtonRect(580, buttonHeight), "colour"))
 		{
 			Core.getInstance().interfaceColors.setGreyscale(false);
 		}
 
-		//Clicking the Grey button will set the interface colorscheme to grayscale.
-		if(greyButton.render(new Rect(((Screen.width / 2) + (220 * ((Screen.width + Screen.height) / 2) / 1500)), 
-		                     (Screen.height / 2 - rightButtonHeight - GUI.skin.button.fontSize), 
-		                      360 * ((Screen.width + Screen.height) / 2) / 1500, 180 * ((Screen.width + Screen.height) / 2) / 1500), "grey"))
+		//Clicking the Grey button will set the interface colorscheme to greyscale.
+		if(greyButton.render(getButtonRect(-220, buttonHeight), "grey"))
 		{
 			Core.getInstance().interfaceColors.setGreyscale(true);
 		}

@@ -25,7 +25,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-//Class: TouchPointer\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: TouchPointer//////////////////////////////////////////////////////////
 //
 //This class generates virtual 2D pointers for every single
 //finger tip within the Leap's field of view.  These pointers are automatically
@@ -33,7 +33,7 @@ using System.Collections.Generic;
 //
 class TouchPointer : BaseSingleton<TouchPointer>
 {
-//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private//////////////////////////////////////////////////////////////////////
 	
 	//Leap listener.
 	private LeapListener listener;
@@ -41,7 +41,7 @@ class TouchPointer : BaseSingleton<TouchPointer>
 	//Leap box.
 	private Leap.InteractionBox normalizedBox;
 	
-//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\	
+//Public///////////////////////////////////////////////////////////////////////
 
 	//Pointer texture.
 	public Texture2D pointerNormal;
@@ -52,10 +52,10 @@ class TouchPointer : BaseSingleton<TouchPointer>
 	//Currently active fingers.
 	public List<Rect> fingers = new List<Rect>();
 
-	//Member Function: onAwake\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: onAwake///////////////////////////////////////////////////
 	public override void onAwake() { listener = new LeapListener(); }
 
-	//Member Function: OnDisable\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: OnDisable/////////////////////////////////////////////////
 	public void OnDisable()
 	{
 		//Reset the fingers array.
@@ -63,7 +63,7 @@ class TouchPointer : BaseSingleton<TouchPointer>
 			fingers.Clear();
 	}
 	
-	//Member Function: Update\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: Update////////////////////////////////////////////////////
 	public void Update()
 	{		
 		//Update the listener.
@@ -102,7 +102,7 @@ class TouchPointer : BaseSingleton<TouchPointer>
 		}
 	}
 	
-	//Member Function: OnGUI\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: OnGUI/////////////////////////////////////////////////////
 	public void OnGUI()
 	{
 		//Make a note of the current GUI color so that we don't overwrite it.

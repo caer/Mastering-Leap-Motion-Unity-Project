@@ -23,7 +23,7 @@ limitations under the License.
 //
 using UnityEngine;
 
-//Class: BaseSingleton\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: BaseSingleton/////////////////////////////////////////////////////////
 //
 //Singleton wrapper for the Base class.  Any class that inherits from this
 //will become a singleton.
@@ -33,7 +33,7 @@ using UnityEngine;
 //
 public class BaseSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-	//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Private////////////////////////////////////////////////////////////////////
 	
 	//Instance of this type.
 	private static T instance;
@@ -41,9 +41,9 @@ public class BaseSingleton<T> : MonoBehaviour where T : MonoBehaviour
 	//Has this type already been enabled?
 	private static bool awoken = false;
 	
-	//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Public/////////////////////////////////////////////////////////////////////
 	
-	//Member Function: Awake\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: Awake/////////////////////////////////////////////////////
 	public void Awake()
 	{
 		//If there's already an instance, delete this one.
@@ -65,7 +65,7 @@ public class BaseSingleton<T> : MonoBehaviour where T : MonoBehaviour
 		}
 	}
 
-	//Member Function: onAwake\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: onAwake///////////////////////////////////////////////////
 	//
 	//[onAwake] is called when this object wakes up.  Use this instead of
 	//          [Awake].
@@ -75,7 +75,7 @@ public class BaseSingleton<T> : MonoBehaviour where T : MonoBehaviour
 	//
 	public virtual void onAwake() {}
 	
-	//Member Function: getInstance\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: getInstance///////////////////////////////////////////////
 	//
 	//[getInstance] returns the current active instance.
 	//

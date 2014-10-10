@@ -23,7 +23,7 @@ limitations under the License.
 //
 using UnityEngine;
 
-//Class: Core\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: Core//////////////////////////////////////////////////////////////////
 //
 //The Core class forms the center of the Leap Flying Entity Unity project,
 //facilitating communication between different scripts and handling the
@@ -31,12 +31,12 @@ using UnityEngine;
 //
 public class Core : BaseSingleton<Core>
 {
-//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private//////////////////////////////////////////////////////////////////////
 	
 	//Leap Listener.
 	private LeapListener listener;
 
-//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Public///////////////////////////////////////////////////////////////////////
 
 	//Interface colorscheme.
 	public Colorscheme interfaceColors = new Colorscheme();
@@ -50,7 +50,7 @@ public class Core : BaseSingleton<Core>
 	//Paused?
 	public bool paused = true;
 
-	//Member Function: onAwake\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: onAwake///////////////////////////////////////////////////
 	public override void onAwake()
 	{
 		//This script will not be destroyed, even when a new level loads.
@@ -60,10 +60,10 @@ public class Core : BaseSingleton<Core>
 		listener = new LeapListener();
 	}
 	
-	//Member Function: OnApplicationFocus\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-	public void OnApplicationFocus(bool pauseStatus) {applicationFocused = pauseStatus;}
+	//Member Function: OnApplicationFocus////////////////////////////////////////
+	public void OnApplicationFocus(bool pauseStatus) { applicationFocused = pauseStatus; }
 	
-	//Member Function: Update\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: Update////////////////////////////////////////////////////
 	public void Update()
 	{
 		//Update the leap listener.

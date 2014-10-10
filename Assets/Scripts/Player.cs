@@ -24,7 +24,7 @@ limitations under the License.
 using UnityEngine;
 using System.Collections;
 
-//Class: Player\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: Player////////////////////////////////////////////////////////////////
 //
 //This class controls the "player" Game Object, translating input from the
 //HandController class into motion.
@@ -34,13 +34,13 @@ public class Player : MonoBehaviour
 	//Reference to the hand controller.
 	HandController controller;
 
-	//Member Function: Start\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: Start/////////////////////////////////////////////////////
 	void Start() 
 	{ 
 		controller = HandController.getInstance();
 	}
 	
-	//Member Function: Update\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: Update////////////////////////////////////////////////////
 	void Update () 
 	{
 		//Only move if the game is unpaused.

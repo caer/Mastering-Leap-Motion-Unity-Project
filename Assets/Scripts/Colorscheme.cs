@@ -24,18 +24,18 @@ limitations under the License.
 using UnityEngine;
 using System;
 
-//Class: Colorscheme\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Class: Colorscheme///////////////////////////////////////////////////////////
 //
 //The Colorscheme class is used to streamline the sharing and managing of colors
 //across classes and functions.
 //
-//This class is serializable to enable direct editing of the 
+//This class is marked as serializable to enable direct editing of the 
 //public colorscheme values from the Unity Inspector.
 //
 [Serializable]
 public class Colorscheme
 {
-//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private//////////////////////////////////////////////////////////////////////
 
 	//Original colorscheme that we can revert to when switching 
 	//between greyscale and normal colors.
@@ -44,7 +44,7 @@ public class Colorscheme
 	//Is this colorscheme currently set to greyscale?
 	private bool greyscale = false;
 
-//Public\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Public///////////////////////////////////////////////////////////////////////
 	
 	//Primary color.
 	public Color primary = new Color(0, 0, 0, 0);
@@ -61,7 +61,7 @@ public class Colorscheme
 	//Special color.
 	public Color special = new Color(0, 0, 0, 0);
 
-	//Member Function: greyscale\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//Member Function: greyscale/////////////////////////////////////////////////
 	public void  setGreyscale(bool grey)
 	{
 		//Set to greyscale if this colorscheme isn't already greyscale.

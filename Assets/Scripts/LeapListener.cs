@@ -33,7 +33,7 @@ using Leap;
 //
 public class LeapListener
 {    
-//Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+//Private//////////////////////////////////////////////////////////////////////
 	
 	//Leap controller.
 	private Leap.Controller controller = null;
