@@ -127,7 +127,7 @@ public class TouchableButton
 				//Increment size.
 				size += 0.005F;
 				
-				//We recieved at least one good value.
+				//We received at least one good value.
 				bad = false;
 			}
 		}

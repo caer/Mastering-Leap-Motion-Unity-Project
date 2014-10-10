@@ -29,12 +29,16 @@ using System;
 //The Colorscheme class is used to streamline the sharing and managing of colors
 //across classes and functions.
 //
+//This class is serializable to enable direct editing of the 
+//public colorscheme values from the Unity Inspector.
+//
 [Serializable]
 public class Colorscheme
 {
 //Private\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-	//Original colorscheme.
+	//Original colorscheme that we can revert to when switching 
+	//between greyscale and normal colors.
 	private Colorscheme original;
 
 	//Is this colorscheme currently set to greyscale?

@@ -95,7 +95,7 @@ public class BaseSingleton<T> : MonoBehaviour where T : MonoBehaviour
 				instance = (T) Object.FindObjectOfType(typeof(T));
 			}
 			
-			//Otherwise, create a new object with a instance instance.
+			//Otherwise, create a new object with an instance.
 			catch
 			{
 				GameObject instanceObject = new GameObject(typeof(T).ToString());
@@ -112,7 +112,7 @@ public class BaseSingleton<T> : MonoBehaviour where T : MonoBehaviour
 			}
 		}
 		
-		//Return the current instance instance.
+		//Return the current instance.
 		return instance;
 	}
 }

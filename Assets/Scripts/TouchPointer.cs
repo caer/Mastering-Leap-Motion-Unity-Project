@@ -74,7 +74,7 @@ class TouchPointer : BaseSingleton<TouchPointer>
 			fingers.Clear();
 
 		//Retrieve coordinates for any fingers that are present, but only if the menus are visible.
-		if (listener.fingers > 0 && listener.hands > 0 && Core.getInstance().paused == true)
+		if (listener.fingers > 0 && Core.getInstance().paused)
 		{
 			//Loop over all fingers.
 			for (int i = 0; i < listener.fingers; i++)
@@ -89,7 +89,7 @@ class TouchPointer : BaseSingleton<TouchPointer>
 				tipPosition.x = normalizedBox.NormalizePoint(listener.frame.Fingers[i].TipPosition).x;
 				tipPosition.y = normalizedBox.NormalizePoint(listener.frame.Fingers[i].TipPosition).y;
 			
-				//Modify coordinates to equal screen rezzy.
+				//Modify coordinates to equal screen resolution.
 				tipPosition.x = tipPosition.x * Screen.width;
 				tipPosition.y = tipPosition.y * Screen.height;
 			

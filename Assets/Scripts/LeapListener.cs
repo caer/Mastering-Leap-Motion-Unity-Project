@@ -157,7 +157,8 @@ public class LeapListener
 			return true;
 		}
 		
-		catch(System.Exception e) {/*Log.Write(e.StackTrace, this);*/  return false;}
+		//In the event that anything goes wrong while reading and converting tracking data, log the exception.
+		catch (System.Exception e) { UnityEngine.Debug.LogException(e);  return false; }
 	}
 	
 	//Mwmber Function: rotation////////////////////////////////////////////////

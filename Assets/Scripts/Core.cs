@@ -53,7 +53,7 @@ public class Core : BaseSingleton<Core>
 	//Member Function: onAwake\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	public override void onAwake()
 	{
-		//This object is not destroyed.  Ever.
+		//This script will not be destroyed, even when a new level loads.
 		DontDestroyOnLoad(gameObject);
 
 		//Create a new Leap Listener.
@@ -69,7 +69,7 @@ public class Core : BaseSingleton<Core>
 		//Update the leap listener.
 		listener.refresh();
 
-		//If the user closes their hand while the game is not paused or hits escape, pause it.
+		//If the user closes their hand while the game is not paused, pause it.
 		if (listener.hands < 1 || titleMenu.open || !applicationFocused)
 		{	
 			//Pause all entities
