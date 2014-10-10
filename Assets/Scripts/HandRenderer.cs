@@ -123,7 +123,7 @@ class HandRenderer : MonoBehaviour
           //Move the hand.
           hands[i].transform.localPosition = palmPosition;
           
-          //Setup the hands rotation to neutral.
+          //Set the hands rotation to neutral.
           Quaternion lr = hands[i].transform.rotation;
           
           Vector3 leap = listener.rotation(listener.frame.Hands[i]);
@@ -133,8 +133,8 @@ class HandRenderer : MonoBehaviour
           hands[i].transform.localRotation = lr;
         }
         
-        //Ignore any array index out of bounds errors.
-        catch{}
+        //Watch out for those pesky "index out of bounds" errors.
+        catch (System.IndexOutOfRangeException e) { Debug.LogException(e); }
       }
     }
     
@@ -178,7 +178,7 @@ class HandRenderer : MonoBehaviour
           //Move the finger to where it belongs.
           fingers[i].transform.localPosition = tipPosition;
           
-          //Setup the hands rotation to neutral.
+          //Set the fingers rotation to neutral.
           Quaternion lr = fingers[i].transform.rotation;
           
           lr.eulerAngles = Vector3.zero;
@@ -186,8 +186,8 @@ class HandRenderer : MonoBehaviour
           fingers[i].transform.localRotation = lr;
         }
         
-        //Ignore any array index out of bounds errors.
-        catch {}
+        //Watch out for those pesky "index out of bounds" errors.
+        catch (System.IndexOutOfRangeException e) { Debug.LogException(e); }
       }
     }
     

@@ -112,9 +112,9 @@ public class LeapListener
           Vector direction = frame.Hands[0].Direction;
           
           //Get the hand's angles.
-          handPitch = (float) direction.Pitch * 180.0f / (float)System.Math.PI;
-          handRoll = (float) normal.Roll * 180.0f / (float)System.Math.PI;
-          handYaw = (float) direction.Yaw * 180.0f / (float)System.Math.PI;
+          handPitch = (float) direction.Pitch * 180.0f / (float) System.Math.PI;
+          handRoll = (float) normal.Roll * 180.0f / (float) System.Math.PI;
+          handYaw = (float) direction.Yaw * 180.0f / (float) System.Math.PI;
           
           thumb = null;
           
@@ -175,9 +175,9 @@ public class LeapListener
     Vector direction = hand.Direction;
     
     //Set the values.
-    rotationAngles.x = (float) direction.Pitch * 180.0f / (float)System.Math.PI;
-    rotationAngles.z = (float) normal.Roll * 180.0f / (float)System.Math.PI;
-    rotationAngles.y = (float) direction.Yaw * 180.0f / (float)System.Math.PI;
+    rotationAngles.x = (float) direction.Pitch * 180.0f / (float) System.Math.PI;
+    rotationAngles.z = (float) normal.Roll * 180.0f / (float) System.Math.PI;
+    rotationAngles.y = (float) direction.Yaw * 180.0f / (float) System.Math.PI;
     
     //Return the angles.
     return rotationAngles;
