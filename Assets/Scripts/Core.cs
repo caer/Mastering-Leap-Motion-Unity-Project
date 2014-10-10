@@ -32,64 +32,64 @@ using UnityEngine;
 public class Core : BaseSingleton<Core>
 {
 //Private//////////////////////////////////////////////////////////////////////
-	
-	//Leap Listener.
-	private LeapListener listener;
+  
+  //Leap Listener.
+  private LeapListener listener;
 
 //Public///////////////////////////////////////////////////////////////////////
 
-	//Interface colorscheme.
-	public Colorscheme interfaceColors = new Colorscheme();
-	
-	//Title menu.
-	public TitleMenu titleMenu = null;
+  //Interface colorscheme.
+  public Colorscheme interfaceColors = new Colorscheme();
+  
+  //Title menu.
+  public TitleMenu titleMenu = null;
 
-	//Does the application have focus?
-	public bool applicationFocused = true;
+  //Does the application have focus?
+  public bool applicationFocused = true;
 
-	//Paused?
-	public bool paused = true;
+  //Paused?
+  public bool paused = true;
 
-	//Member Function: onAwake///////////////////////////////////////////////////
-	public override void onAwake()
-	{
-		//This script will not be destroyed, even when a new level loads.
-		DontDestroyOnLoad(gameObject);
+  //Member Function: onAwake///////////////////////////////////////////////////
+  public override void onAwake()
+  {
+    //This script will not be destroyed, even when a new level loads.
+    DontDestroyOnLoad(gameObject);
 
-		//Create a new Leap Listener.
-		listener = new LeapListener();
-	}
-	
-	//Member Function: OnApplicationFocus////////////////////////////////////////
-	public void OnApplicationFocus(bool pauseStatus) { applicationFocused = pauseStatus; }
-	
-	//Member Function: Update////////////////////////////////////////////////////
-	public void Update()
-	{
-		//Update the leap listener.
-		listener.refresh();
+    //Create a new Leap Listener.
+    listener = new LeapListener();
+  }
+  
+  //Member Function: OnApplicationFocus////////////////////////////////////////
+  public void OnApplicationFocus(bool pauseStatus) { applicationFocused = pauseStatus; }
+  
+  //Member Function: Update////////////////////////////////////////////////////
+  public void Update()
+  {
+    //Update the leap listener.
+    listener.refresh();
 
-		//If the user closes their hand while the game is not paused, pause it.
-		if (listener.hands < 1 || titleMenu.open || !applicationFocused)
-		{	
-			//Pause all entities
-			paused = true;
+    //If the user closes their hand while the game is not paused, pause it.
+    if (listener.hands < 1 || titleMenu.open || !applicationFocused)
+    { 
+      //Pause all entities
+      paused = true;
 
-			//Open the title menu.
-			if (titleMenu.open == false) titleMenu.enabled = true;
+      //Open the title menu.
+      if (titleMenu.open == false) titleMenu.enabled = true;
 
-			//Hide the hands.
-			this.GetComponent<HandRenderer>().enabled = false;
-		}
-		
-		//Otherwise, keep the game running.
-		else if (listener.hands >= 1 && titleMenu.open == false)
-		{	
-			//Unpause all entities.
-			paused = false;
+      //Hide the hands.
+      this.GetComponent<HandRenderer>().enabled = false;
+    }
+    
+    //Otherwise, keep the game running.
+    else if (listener.hands >= 1 && titleMenu.open == false)
+    { 
+      //Unpause all entities.
+      paused = false;
 
-			//Show the hands.
-			this.GetComponent<HandRenderer>().enabled = true;
-		}
-	}
+      //Show the hands.
+      this.GetComponent<HandRenderer>().enabled = true;
+    }
+  }
 }

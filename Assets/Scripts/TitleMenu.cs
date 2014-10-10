@@ -31,76 +31,74 @@ using System.Collections.Generic;
 //
 public class TitleMenu : MonoBehaviour
 {
-//Public///////////////////////////////////////////////////////////////////////
+  //Smoothed button height for middle, right, and left.
+  public float buttonHeight = 0.0f;
 
-	//Smoothed button height for middle, right, and left.
-	public float buttonHeight = 0.0f;
+  //Font size.
+  public static int fontsize = 10000;
 
-	//Font size.
-	public static int fontsize = 10000;
+  //Is the title menu open?
+  public bool open = false;
+  
+  //Touchable buttons.
+  public TouchableButton colorButton;
+  public TouchableButton playButton;
+  public TouchableButton greyButton;
 
-	//Is the title menu open?
-	public bool open = false;
-	
-	//Touchable buttons.
-	public TouchableButton colorButton;
-	public TouchableButton playButton;
-	public TouchableButton greyButton;
+  //Member Function: OnEnable//////////////////////////////////////////////////
+  public void OnEnable()
+  {
+    //The menu is now open.
+    open = true;
 
-	//Member Function: OnEnable//////////////////////////////////////////////////
-	public void OnEnable()
-	{
-		//The menu is now open.
-		open = true;
+    //Initialize buttons.
+    colorButton = new TouchableButton();
+    playButton = new TouchableButton();
+    greyButton = new TouchableButton();
+  }
 
-		//Initialize buttons.
-		colorButton = new TouchableButton();
-		playButton = new TouchableButton();
-		greyButton = new TouchableButton();
-	}
+  //Member Function: OnDisable/////////////////////////////////////////////////
+  public void OnDisable()
+  {
+    //The menu is now closed.
+    open = false;
+  }
+  
+  //Member Function: getButtonRect/////////////////////////////////////////////
+  public Rect getButtonRect(float x, float y)
+  {
+    return new Rect(((Screen.width / 2) - (x * ((Screen.width + Screen.height) / 2) / 1500)), 
+                     (Screen.height / 2 - y - GUI.skin.button.fontSize), 
+                      360 * ((Screen.width + Screen.height) / 2) / 1500, 180 * ((Screen.width + Screen.height) / 2) / 1500);
+  }
+  
+  //Member Function: OnGUI/////////////////////////////////////////////////////
+  public void OnGUI() 
+  {
+    //Set up GUI fonts.
+    GUI.skin.button.fontSize = ((Screen.width + Screen.height) / 2) / 15;
+    fontsize = GUI.skin.button.fontSize;
 
-	//Member Function: OnDisable/////////////////////////////////////////////////
-	public void OnDisable()
-	{
-		//The menu is now closed.
-		open = false;
-	}
-	
-	//Member Function: getButtonRect/////////////////////////////////////////////
-	public Rect getButtonRect(float x, float y)
-	{
-		return new Rect(((Screen.width / 2) - (x * ((Screen.width + Screen.height) / 2) / 1500)), 
-		                 (Screen.height / 2 - y - GUI.skin.button.fontSize), 
-		                  360 * ((Screen.width + Screen.height) / 2) / 1500, 180 * ((Screen.width + Screen.height) / 2) / 1500);
-	}
-	
-	//Member Function: OnGUI/////////////////////////////////////////////////////
-	public void OnGUI() 
-	{
-		//Set up GUI fonts.
-		GUI.skin.button.fontSize = ((Screen.width + Screen.height) / 2) / 15;
-		fontsize = GUI.skin.button.fontSize;
+    //Set up GUI colors again.
+    GUI.color = new Color(Core.getInstance().interfaceColors.primary.r, Core.getInstance().interfaceColors.primary.g, Core.getInstance().interfaceColors.primary.b);
 
-		//Set up GUI colors again.
-		GUI.color = new Color(Core.getInstance().interfaceColors.primary.r, Core.getInstance().interfaceColors.primary.g, Core.getInstance().interfaceColors.primary.b);
+    //Clicking the Play button will unpause the game and begin play.
+    if(playButton.render(getButtonRect(180, buttonHeight), "play"))
+    {
+      //Close and disable the menu.
+      open = false; enabled = false;
+    }
 
-		//Clicking the Play button will unpause the game and begin play.
-		if(playButton.render(getButtonRect(180, buttonHeight), "play"))
-		{
-			//Close and disable the menu.
-			open = false; enabled = false;
-		}
+    //Clicking the Colour button will restore the interface colorscheme to its defaults.
+    if(colorButton.render(getButtonRect(580, buttonHeight), "colour"))
+    {
+      Core.getInstance().interfaceColors.setGreyscale(false);
+    }
 
-		//Clicking the Colour button will restore the interface colorscheme to its defaults.
-		if(colorButton.render(getButtonRect(580, buttonHeight), "colour"))
-		{
-			Core.getInstance().interfaceColors.setGreyscale(false);
-		}
-
-		//Clicking the Grey button will set the interface colorscheme to greyscale.
-		if(greyButton.render(getButtonRect(-220, buttonHeight), "grey"))
-		{
-			Core.getInstance().interfaceColors.setGreyscale(true);
-		}
-	}
+    //Clicking the Grey button will set the interface colorscheme to greyscale.
+    if(greyButton.render(getButtonRect(-220, buttonHeight), "grey"))
+    {
+      Core.getInstance().interfaceColors.setGreyscale(true);
+    }
+  }
 }

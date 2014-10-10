@@ -31,29 +31,29 @@ using System.Collections;
 //
 public class Player : MonoBehaviour
 {
-	//Reference to the hand controller.
-	HandController controller;
+  //Reference to the hand controller.
+  HandController controller;
 
-	//Member Function: Start/////////////////////////////////////////////////////
-	void Start() 
-	{ 
-		controller = HandController.getInstance();
-	}
-	
-	//Member Function: Update////////////////////////////////////////////////////
-	void Update () 
-	{
-		//Only move if the game is unpaused.
-		if (Core.getInstance ().paused == false) 
-		{
-			//Transform position forward.
-			rigidbody.velocity = transform.forward * (controller.y / -2);
+  //Member Function: Start/////////////////////////////////////////////////////
+  void Start() 
+  { 
+    controller = HandController.getInstance();
+  }
+  
+  //Member Function: Update////////////////////////////////////////////////////
+  void Update () 
+  {
+    //Only move if the game is unpaused.
+    if (Core.getInstance ().paused == false) 
+    {
+      //Transform position forward.
+      rigidbody.velocity = transform.forward * (controller.y / -2);
 
-			//Rotate.
-			transform.Rotate (0, controller.x * 1.25f * Time.deltaTime, 0, Space.World);
-		}
+      //Rotate.
+      transform.Rotate (0, controller.x * 1.25f * Time.deltaTime, 0, Space.World);
+    }
 
-		//If the game is paused, cancel all force vectors.
-		else rigidbody.velocity = new Vector3(0, 0, 0);
-	}
+    //If the game is paused, cancel all force vectors.
+    else rigidbody.velocity = new Vector3(0, 0, 0);
+  }
 }

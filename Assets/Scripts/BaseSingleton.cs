@@ -33,86 +33,86 @@ using UnityEngine;
 //
 public class BaseSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-	//Private////////////////////////////////////////////////////////////////////
-	
-	//Instance of this type.
-	private static T instance;
-	
-	//Has this type already been enabled?
-	private static bool awoken = false;
-	
-	//Public/////////////////////////////////////////////////////////////////////
-	
-	//Member Function: Awake/////////////////////////////////////////////////////
-	public void Awake()
-	{
-		//If there's already an instance, delete this one.
-		if (instance != null && instance != this)
-			Destroy(this);
-		
-		//Otherwise, proceed to initialize.
-		else
-		{	
-			//Check if we should wake up.
-			if (!awoken)
-			{	
-				//Awake will now no longer be called.
-				awoken = true;
-				
-				//Wake up.
-				onAwake();
-			}
-		}
-	}
+//Private//////////////////////////////////////////////////////////////////////
+  
+  //Instance of this type.
+  private static T instance;
+  
+  //Has this type already been enabled?
+  private static bool awoken = false;
+  
+//Public///////////////////////////////////////////////////////////////////////
+  
+  //Member Function: Awake/////////////////////////////////////////////////////
+  public void Awake()
+  {
+    //If there's already an instance, delete this one.
+    if (instance != null && instance != this)
+      Destroy(this);
+    
+    //Otherwise, proceed to initialize.
+    else
+    { 
+      //Check if we should wake up.
+      if (!awoken)
+      { 
+        //Awake will now no longer be called.
+        awoken = true;
+        
+        //Wake up.
+        onAwake();
+      }
+    }
+  }
 
-	//Member Function: onAwake///////////////////////////////////////////////////
-	//
-	//[onAwake] is called when this object wakes up.  Use this instead of
-	//          [Awake].
-	//
-	//[onAwake] is guaranteed to be called only once if the class implementing
-	//          it inherits from BaseSingleton instead of Base.
-	//
-	public virtual void onAwake() {}
-	
-	//Member Function: getInstance///////////////////////////////////////////////
-	//
-	//[getInstance] returns the current active instance.
-	//
-	//If no active instance exists, this function will attempt to find
-	//any instances registered to game objects.  If that fails, this function
-	//will create a new instance.
-	//
-	public static T getInstance()
-	{
-		//If there is no instance to return, generate a new one.
-		if (instance == null)
-		{
-			//First attempt to see if there's already an instance
-			//attached to an object and use that.
-			try
-			{
-				instance = (T) Object.FindObjectOfType(typeof(T));
-			}
-			
-			//Otherwise, create a new object with an instance.
-			catch
-			{
-				GameObject instanceObject = new GameObject(typeof(T).ToString());
-				instanceObject.AddComponent<T>();
-				instance = instanceObject.GetComponent<T>();
-			}
-			
-			//Call the instance's awake.
-			if (!awoken)
-			{
-				awoken = true;
-				
-				instance.Invoke("onAwake", 0.0F);
-			}
-		}
-		
-		//Return the current instance.
-		return instance;
-	}
+  //Member Function: onAwake///////////////////////////////////////////////////
+  //
+  //[onAwake] is called when this object wakes up.  Use this instead of
+  //          [Awake].
+  //
+  //[onAwake] is guaranteed to be called only once if the class implementing
+  //          it inherits from BaseSingleton instead of Base.
+  //
+  public virtual void onAwake() {}
+  
+  //Member Function: getInstance///////////////////////////////////////////////
+  //
+  //[getInstance] returns the current active instance.
+  //
+  //If no active instance exists, this function will attempt to find
+  //any instances registered to game objects.  If that fails, this function
+  //will create a new instance.
+  //
+  public static T getInstance()
+  {
+    //If there is no instance to return, generate a new one.
+    if (instance == null)
+    {
+      //First attempt to see if there's already an instance
+      //attached to an object and use that.
+      try
+      {
+        instance = (T) Object.FindObjectOfType(typeof(T));
+      }
+      
+      //Otherwise, create a new object with an instance.
+      catch
+      {
+        GameObject instanceObject = new GameObject(typeof(T).ToString());
+        instanceObject.AddComponent<T>();
+        instance = instanceObject.GetComponent<T>();
+      }
+      
+      //Call the instance's awake.
+      if (!awoken)
+      {
+        awoken = true;
+        
+        instance.Invoke("onAwake", 0.0F);
+      }
+    }
+    
+    //Return the current instance.
+    return instance;
+  }
 }
